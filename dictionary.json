@@ -1,0 +1,732 @@
+{
+    "SYSTEM & FEEDBACK": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "system_login": {
+        "en": "Log in",
+        "nl": "Inloggen",
+        "es": "Entrar"
+    },
+    "system_signup": {
+        "en": "Sign up",
+        "nl": "Maak account",
+        "es": "Creado cuenta"
+    },
+    "system_logout": {
+        "en": "Log out",
+        "nl": "Uitloggen",
+        "es": "Finalizar la Sesión"
+    },
+    "system_delete": {
+        "en": "Delete",
+        "nl": "Verwijder",
+        "es": "Borrar"
+    },
+    "system_report": {
+        "en": "Report",
+        "nl": "Rapporteer",
+        "es": "Reporta"
+    },
+    "system_email": {
+        "en": "Email",
+        "nl": "E-mail",
+        "es": "Corredo electronica"
+    },
+    "system_password": {
+        "en": "Password",
+        "nl": "Wachtwoord",
+        "es": "Clave"
+    },
+    "system_first_name": {
+        "en": "First name",
+        "nl": "Voornaam",
+        "es": "Nombre primero "
+    },
+    "system_choose_profile_picture": {
+        "en": "Choose a profile picture",
+        "nl": "Kies een accountfoto",
+        "es": "Elige una imagen de cuenta"
+    },
+    "system_choose_file": {
+        "en": "Chooese file",
+        "nl": "Kies bestand",
+        "es": "Elegir archivo"
+    },
+    "system_characters": {
+        "en": "characters",
+        "nl": "tekens",
+        "es": "caracteres"
+    },
+    "system_to": {
+        "en": "to",
+        "nl": "tot",
+        "es": "a"
+    },
+    "system_ago": {
+        "en": "ago",
+        "nl": "tot",
+        "es": "atrás"
+    },
+    "system_eg": {
+        "en": "e.g.",
+        "nl": "bijv.",
+        "es": "p.ej."
+    },
+    "system_loading": {
+        "en": "Loading...",
+        "nl": "Laden...",
+        "es": "Cargando..."
+    },
+    "system_updating": {
+        "en": "Updating...",
+        "nl": "Updaten...",
+        "es": "Actualizando..."
+    },
+    "system_back": {
+        "en": "back",
+        "nl": "terug",
+        "es": "volver"
+    },
+    "system_block": {
+        "en": "Block",
+        "nl": "Blokkeren",
+        "es": "Bloquear"
+    },
+    "system_unblock": {
+        "en": "Unblock",
+        "nl": "Deblokkeren",
+        "es": "Desbloquear"
+    },
+    "system_confirm": {
+        "en": "Confirm",
+        "nl": "Bevestigen",
+        "es": "Confirmar"
+    },
+    "feedback_user_not_found": {
+        "en": "User not found",
+        "nl": "Account bestaat niet",
+        "es": "Cuenta no existe"
+    },
+    "feedback_user_not_verified": {
+        "en": "User not verified. Please check your email",
+        "nl": "Account niet geverificeërd. Bekijk uw e-mail inbox",
+        "es": "Cuenta no verificado. Revisa tu correo electrónico por favor"
+    },
+    "feedback_email_already_registered": {
+        "en": "Email already registered",
+        "nl": "Email al geregistreerd",
+        "es": "Corredo electronia hay usado"
+    },
+    "feedback_system_maintenance": {
+        "en": "System under maintenance",
+        "nl": "Systeem in onderhoud",
+        "es": "Systema que maintenance"
+    },
+    "feedback_invalid_credentials": {
+        "en": "Invalid credentials",
+        "nl": "Ongeldig wachtwoord",
+        "es": "Clave invalido"
+    },
+    "feedback_invalid_email": {
+        "en": "Invalid email",
+        "nl": "Ongeldig email",
+        "es": "Corredo electronica invalido"
+    },
+    "feedback_invalid_first_name": {
+        "en": "Invalid first name",
+        "nl": "Ongeldig voornaam",
+        "es": "Nombre primero invalido"
+    },
+    "feedback_invalid_password": {
+        "en": "Invalid password",
+        "nl": "Ongeldig wachtwoord",
+        "es": "Clave invalido"
+    },
+    "feedback_invalid_password_repeat": {
+        "en": "Invalid repeated password",
+        "nl": "Ongeldig herhaalend wachtwoord",
+        "es": "Clave repetido invalido"
+    },
+    "feedback_invalid_review": {
+        "en": "Review must be",
+        "nl": "Recencie moet minstens",
+        "es": "La reseña debe ser"
+    },
+    "feedback_invalid_already_blocked": {
+        "en": "User already blocked",
+        "nl": "Gebruiker al geblokkeerd",
+        "es": "Usuario ya bloqueado"
+    },
+    "feedback_invalid_user_deleted": {
+        "en": "User deleted from Dupeflix, contact admin to request reactivation",
+        "nl": "Gebruiker verwijderd van Dupeflix, neem contact op met de beheerder om reactivering aan te vragen",
+        "es": "Usuario eliminado de Dupeflix. Contacta al administrador para solicitar la reactivación."
+    },
+    "feedback_check_email": {
+        "en": "Please check your email",
+        "nl": "Controleer uw e-mail",
+        "es": "Por favor revisa tu correo electrónico"
+    },
+    "feedback_pass_email_already_sent": {
+        "en": "An email has already been sent to create a new password. Check you email",
+        "nl": "Er is al een e-mail verzonden om een ​​nieuw wachtwoord aan te maken. Controleer uw e-mail.",
+        "es": "Ya se ha enviado un correo electrónico para crear una nueva contraseña. Revisa tu correo electrónico."
+    },
+    "feedback_pass_must_match": {
+        "en": "Passwords do not match",
+        "nl": "Wachtwoorden komen niet overeen",
+        "es": "Las contraseñas no coinciden"
+    },
+    "feedback_pass_updated_success": {
+        "en": "Password created successfully",
+        "nl": "Wachtwoord succesvol aangemaakt",
+        "es": "Contraseña creada exitosamente"
+    },
+    "feedback_success_created_review": {
+        "en": "Successfully created review",
+        "nl": "Recensie is aangemaakt",
+        "es": "Reseña creada exitosamente"
+    },
+    "feedback_success_review_deleted": {
+        "en": "Successfully deleted review",
+        "nl": "Recensie succesvol verwijderd",
+        "es": "Reseña eliminada correctamente"
+    },
+    "feedback_success_blocked_user": {
+        "en": "Successfully blocked user. Unblock them under My Account",
+        "nl": "Gebruiker succesvol geblokkeerd. Deblokkeer ze via 'Mijn account'.",
+        "es": "Usuario bloqueado correctamente. Desbloquéelo en Mi cuenta."
+    },
+    "feedback_success_unblocked_user": {
+        "en": "Successfully unblocked user",
+        "nl": "Gebruiker succesvol gedeblokkeerd.",
+        "es": "Usuario desbloqueado correctamente."
+    },
+    "feedback_success_signup_email_sent": {
+        "en": "Please verify your account, check your email",
+        "nl": "Verifieer je account en controleer je e-mail.",
+        "es": "Verifique su cuenta y revise su correo electrónico."
+    },
+    "feedback_success_account_updated": {
+        "en": "Successfully updated account details",
+        "nl": "Accountgegevens succesvol bijgewerkt.",
+        "es": "Se actualizaron los datos de la cuenta correctamente."
+    },
+    "LOGIN & SIGNUP": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "login_header_1": {
+        "en": "Enter your info to sign in",
+        "nl": "Vul uw gegevens in om in te loggen",
+        "es": "Ingresa ustedes información para entrar"
+    },
+    "login_body_1": {
+        "en": "Or get started with a new account",
+        "nl": "Of maak een nieuw account aan",
+        "es": "O comience con una nueva cuenta"
+    },
+    "login_splash_1": {
+        "en": "Not a user yet",
+        "nl": "Nog geen account",
+        "es": "No tienes una cuenta"
+    },
+    "login_link_1": {
+        "en": "Become a user",
+        "nl": "Maak een nieuw account",
+        "es": "Creer una cuenta nueva"
+    },
+    "login_forgot_password": {
+        "en": "Forgot password",
+        "nl": "Wachtwoord vergeten",
+        "es": "¿Has olvidado tu contraseña"
+    },
+    "signup_header_1": {
+        "en": "Create an account",
+        "nl": "Maak een account",
+        "es": "Creer una cuenta"
+    },
+    "signup_body_1": {
+        "en": "Just a few steps from great movies, series and more",
+        "nl": "Maar een paar stapjes van geweldige films, series en meer",
+        "es": "A solo unos pasos de grandes películas, series y mucho más"
+    },
+    "signup_splash_1": {
+        "en": "Already have an account",
+        "nl": "Heb je al een account",
+        "es": "Hay tienes una cuenta"
+    },
+    "signup_link_1": {
+        "en": "Log into your account",
+        "nl": "Inloggen in uw account",
+        "es": "Entrar su cuenta"
+    },
+    "INDEX": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "index_header_1": {
+        "en": "Unlimited films, series and more",
+        "nl": "Onbeperkt films, series en veel meer",
+        "es": "Películas, series y más sin límite"
+    },
+    "index_body_1": {
+        "en": "Starts at 89 kr.. Cancel at any time",
+        "nl": "Begint vanaf €11,90. Annuleren kan op ieder moment",
+        "es": "Empieza desde €11,90. Cancela en cualquier momento"
+    },
+    "index_body_2": {
+        "en": "Ready to watch? Enter your email to create or restart your membership",
+        "nl": "Klaar om mee te kijken? Vul in je e-mail of start opnieuw uw lidmaatschap",
+        "es": "¿Listo para ver? Ingresa tu correo electrónico para crear o reiniciar tu suscripción"
+    },
+    "index_cta_1": {
+        "en": "Get started",
+        "nl": "Begin hier",
+        "es": "Empezar aquí"
+    },
+    "index_reasons_to_join": {
+        "en": "More reasons to join",
+        "nl": "Redenen om een account aan te maken",
+        "es": "Más razones para unirte"
+    },
+    "index_reason_1_header": {
+        "en": "Enjoy on your TV",
+        "nl": "Geniet ervan vanaf jouw televisie",
+        "es": "Disfruta en tu televisor"
+    },
+    "index_reason_1_body": {
+        "en": "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
+        "nl": "Kijk op smart-tv's, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray-spelers en meer.",
+        "es": "Míralo en televisores inteligentes, PlayStation, Xbox, Chromecast, Apple TV, reproductores de Blu-ray y más."
+    },
+    "COMP. NAV": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "nav_home": {
+        "en": "Browse",
+        "nl": "Ontdek",
+        "es": "Navegar"
+    },
+    "nav_series": {
+        "en": "Series",
+        "nl": "Series",
+        "es": "Series"
+    },
+    "nav_films": {
+        "en": "Films",
+        "nl": "Films",
+        "es": "Películas"
+    },
+    "nav_games": {
+        "en": "Games",
+        "nl": "Spelletjes",
+        "es": "Juegos"
+    },
+    "nav_new_and_popular": {
+        "en": "New and Popular",
+        "nl": "Nieuw en Populair",
+        "es": "Nuevo y Popular"
+    },
+    "nav_my_list": {
+        "en": "My List",
+        "nl": "Mijn Lijst",
+        "es": "Mi Lista"
+    },
+    "nav_browse_by_language": {
+        "en": "Browse by Language",
+        "nl": "Ontdek op Taal",
+        "es": "Navegar por Idioma"
+    },
+    "nav_hello": {
+        "en": "Hello",
+        "nl": "Hoi",
+        "es": "Hola"
+    },
+    "nav_account": {
+        "en": "My Account",
+        "nl": "Mijn Account",
+        "es": "Mi Cuenta"
+    },
+    "nav_transfer_profile": {
+        "en": "Transfer Profile",
+        "nl": "Profiel Overstappen",
+        "es": "Transferir al Perfil"
+    },
+    "nav_help_centre": {
+        "en": "Help Centre",
+        "nl": "Helpcentrum",
+        "es": "Centro de Ayuda"
+    },
+    "nav_of_dupeflix": {
+        "en": "of Dupeflix",
+        "nl": "van Dupeflix",
+        "es": "de Dupeflix"
+    },
+    "BROWSE": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "browse_feature_subheader_1": {
+        "en": "New season of:",
+        "nl": "Nieuw seizoen van:",
+        "es": "Nueva temporada de:"
+    },
+    "browse_feature_header_1": {
+        "en": "House of Love",
+        "nl": "T'huis vol Liefde",
+        "es": "Casa de Amar"
+    },
+    "browse_feature_body_1": {
+        "en": "Twelve hot and recently single people meet in the new season of House of Love. Watch drama unfold now on Dupeflix",
+        "nl": "Twaalf aantrekkelijke en recent vrijgezelle mensen ontmoeten elkaar in het nieuwe seizoen van House of Love. Bekijk het drama nu op Dupeflix.",
+        "es": "Doce personas atractivas y recién solteras se conocen en la nueva temporada de House of Love. ¡No te pierdas el drama ahora en Dupeflix!"
+    },
+    "browse_feature_cta_1": {
+        "en": "Watch now!",
+        "nl": "Kijk mee!",
+        "es": "¡Mira ahora!"
+    },
+    "browse_feature_cta_2": {
+        "en": "More info",
+        "nl": "Meer info",
+        "es": "Más información"
+    },
+    "browse_category_trending_right_now": {
+        "en": "Trending Right Now",
+        "nl": "Trending op Dit Moment",
+        "es": "Tendencia Ahora Mismo"
+    },
+    "browse_category_top_series_today": {
+        "en": "Top 10 Series In Denmark Today",
+        "nl": "Top 10 Series In Nederland Vandaag",
+        "es": "Las 10 Mejores Series de España Hoy"
+    },
+    "browse_category_hilarious_comedy": {
+        "en": "Hilarious Comedy",
+        "nl": "Hilarische Komedie",
+        "es": "Comedia Hilarante"
+    },
+    "browse_category_heart_warming_romance": {
+        "en": "Heart Warming Romance",
+        "nl": "Hartverwarmende Romantiek",
+        "es": "Romances Conmovedores"
+    },
+    "ACCOUNT": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "account_header_1": {
+        "en": "Hello",
+        "nl": "Hoi",
+        "es": "Hola"
+    },
+    "account_body_1": {
+        "en": "Change account details",
+        "nl": "Accountgegevens wijzigen",
+        "es": "Cambiar detalles de cuenta"
+    },
+    "account_cta_1": {
+        "en": "Update details",
+        "nl": "Gegevens wijzigen",
+        "es": "Actualizar detalles"
+    },
+    "account_header_2": {
+        "en": "Users I have blocked",
+        "nl": "Gebruikers die ik heb geblokkeerd",
+        "es": "Usuarios que he bloqueado"
+    },
+    "account_danger_zone": {
+        "en": "Danger Zone",
+        "nl": "Gevaarlijke Zone",
+        "es": "Zona de Peligro"
+    },
+    "account_body_2": {
+        "en": "I want to delete my Dupeflix account",
+        "nl": "Ik wil mijn Dupeflix-account verwijderen",
+        "es": "Quiero eliminar mi cuenta de Dupeflix"
+    },
+    "account_cta_2": {
+        "en": "Delete my account",
+        "nl": "Verwijder mijn account",
+        "es": "Eliminar mi cuenta"
+    },
+    "COMP. REVIEW": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "review_container_header_1": {
+        "en": "Write a review",
+        "nl": "Schrijf een recensie",
+        "es": "Escribe una reseña"
+    },
+    "review_container_input_placeholder": {
+        "en": "What did you think of the movie",
+        "nl": "Wat vondt je van de film",
+        "es": "¿Qué te pareció la película"
+    },
+    "review_container_cta_1": {
+        "en": "Post review",
+        "nl": "Plaats recensie",
+        "es": "Publicar reseña"
+    },
+    "review_container_be_the_first": {
+        "en": "Be the first to write a review!",
+        "nl": "Schrijf als de eerste een recensie",
+        "es": "Sé el primero en escribir una reseña"
+    },
+    "review_body_ago_2": {
+        "en": "",
+        "nl": "",
+        "es": "Hace"
+    },
+    "review_body_ago_1": {
+        "en": "ago",
+        "nl": "geleden",
+        "es": ""
+    },
+    "review_me": {
+        "en": "Me",
+        "nl": "Ik",
+        "es": "Yo"
+    },
+    "review_block": {
+        "en": "Block",
+        "nl": "Blok",
+        "es": "Bloquear"
+    },
+    "review_recent": {
+        "en": "Recent reviews",
+        "nl": "Recente recensies",
+        "es": "Reseñas reciente"
+    },
+    "MOVIE": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "movie_cta_1": {
+        "en": "Watch now",
+        "nl": "Kijk nu",
+        "es": "Mira ahora"
+    },
+    "movie_list_btn_add": {
+        "en": "Add to My List",
+        "nl": "Toevoegen aan Mijn Lijst",
+        "es": "Agregar a Mi Lista"
+    },
+    "movie_list_btn_remove": {
+        "en": "Remove from My List",
+        "nl": "Verwijderen van Mijn Lijst",
+        "es": "Eliminar de Mi Lista"
+    },
+    "movie_runtime": {
+        "en": "minutes",
+        "nl": "minuten",
+        "es": "minutos"
+    },
+    "movie_release": {
+        "en": "Released",
+        "nl": "Vrijgegeven",
+        "es": "Liberado"
+    },
+    "movie_country": {
+        "en": "Country",
+        "nl": "Land",
+        "es": "País"
+    },
+    "movie_genres": {
+        "en": "Genres",
+        "nl": "Genres",
+        "es": "Géneros"
+    },
+    "movie_prod_company": {
+        "en": "Production companies",
+        "nl": "Productie bedrijven",
+        "es": "Empresas productoras"
+    },
+    "UTIL. TIME": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "time_plural_suffix": {
+        "en": "s",
+        "nl": "en",
+        "es": "s"
+    },
+    "time_moments": {
+        "en": "moments",
+        "nl": "momenten",
+        "es": "momentos"
+    },
+    "time_minute": {
+        "en": "minute",
+        "nl": "minuut",
+        "es": "minuto"
+    },
+    "time_hour": {
+        "en": "hour",
+        "nl": "uur",
+        "es": "hora"
+    },
+    "time_day": {
+        "en": "day",
+        "nl": "dag",
+        "es": "día"
+    },
+    "time_week": {
+        "en": "week",
+        "nl": "week",
+        "es": "semana"
+    },
+    "time_month": {
+        "en": "month",
+        "nl": "maand",
+        "es": "mes"
+    },
+    "time_year": {
+        "en": "year",
+        "nl": "jaar",
+        "es": "año"
+    },
+    "PASSWORD": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "pass_forgot_header_1": {
+        "en": "I forgot my password",
+        "nl": "Ik ben mijn wachtwoord vergeten",
+        "es": "Olvidé mi contraseña"
+    },
+    "pass_forgot_body_1": {
+        "en": "We'll send an email with a link, to create a new password",
+        "nl": "Wij stuuren u een e-mail met een link om een nieuw wachtwoord aan te maken",
+        "es": "Le enviaremos un correo electrónico con un enlace para crear una nueva contraseña."
+    },
+    "pass_forgot_cta_1": {
+        "en": "Send email",
+        "nl": "Stuur e-mail",
+        "es": "Enviar correo electrónico"
+    },
+    "pass_new_header_1": {
+        "en": "New password",
+        "nl": "Nieuw wachtwoord",
+        "es": "Nueva contraseña"
+    },
+    "pass_new_body_1": {
+        "en": "Create a new password for yor Dupelix account",
+        "nl": "Maak een nieuw wachtwoord aan voor uw Dupelix-account",
+        "es": "Crea una nueva contraseña para tu cuenta Dupelix"
+    },
+    "pass_new_repeat": {
+        "en": "Repeat",
+        "nl": "Herhaal",
+        "es": "Repetir"
+    },
+    "pass_new_cta_1": {
+        "en": "Create new password",
+        "nl": "Nieuw wachtwoord aanmaken",
+        "es": "Crear nueva contraseña"
+    },
+    "MY LIST": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "mylist_header_1": {
+        "en": "Movies in My List",
+        "nl": "Films in Mijn Lijst",
+        "es": "Películas en Mi Lista"
+    },
+    "mylist_header_2": {
+        "en": "Add more movies to My List through Browse",
+        "nl": "Voeg meer films toe aan Mijn lijst via Ontdeken",
+        "es": "Añade más películas a Mi lista a través de la Navegar"
+    },
+    "mylist_empty": {
+        "en": "My List is empty...",
+        "nl": "Mijn Lijst is leeg...",
+        "es": "Mi Lista está vacía..."
+    },
+    "COMP. FOOTER": {
+        "en": "",
+        "nl": "",
+        "es": ""
+    },
+    "footer_audio": {
+        "en": "Audio Description",
+        "nl": "Audiobeschrijving",
+        "es": "Descripción de audio"
+    },
+    "footer_investor": {
+        "en": "Investor Relations",
+        "nl": "Investeerdersrelaties",
+        "es": "Relaciones con inversores"
+    },
+    "footer_legal": {
+        "en": "Legal Notices",
+        "nl": "Juridische kennisgevingen",
+        "es": "Avisos legales"
+    },
+    "footer_advert": {
+        "en": "Advert choices",
+        "nl": "Advertentie keuzes",
+        "es": "Opciones de publicidad"
+    },
+    "footer_help": {
+        "en": "Help Centre",
+        "nl": "Helpcentrum",
+        "es": "Centro de ayuda"
+    },
+    "footer_jobs": {
+        "en": "Jobs",
+        "nl": "Vacatures",
+        "es": "Empleos"
+    },
+    "footer_cookie": {
+        "en": "Cookie Preferences",
+        "nl": "Cookievoorkeuren",
+        "es": "Preferencias de cookies"
+    },
+    "footer_gift": {
+        "en": "Gift Cards",
+        "nl": "Cadeaubonnen",
+        "es": "Tarjetas de regalo"
+    },
+    "footer_terms": {
+        "en": "Terms of Use",
+        "nl": "Gebruiksvoorwaarden",
+        "es": "Condiciones de uso"
+    },
+    "footer_corporate": {
+        "en": "Corporate Information",
+        "nl": "Bedrijfsinformatie",
+        "es": "Información corporativa"
+    },
+    "footer_media": {
+        "en": "Media Centre",
+        "nl": "Mediacentrum",
+        "es": "Centro de prensa"
+    },
+    "footer_privacy": {
+        "en": "Privacy",
+        "nl": "Privacy",
+        "es": "Privacidad"
+    },
+    "footer_contact": {
+        "en": "Contact Us",
+        "nl": "Contact ons",
+        "es": "Contacto "
+    }
+}

@@ -1,0 +1,16 @@
+<form id="review_container" action="{{ url_for('api_actions.api_create_review', movie_id=movie_id) }}" mix-post
+    class="form-handle">
+    <div class="form-handle-item">
+        <textarea name="post" placeholder="{{ x.lans('review_container_input_placeholder')}}?"
+            class="w-full outline-color-var(color_input_border) outline-1 min-h-3rem pa-2"></textarea>
+
+    </div>
+    <div class="d-flex j-content-between">
+        <p class="small mt-0">({{ x.POST_MIN_LEN }} {{ x.lans('system_to')}} {{ x.POST_MAX_LEN }} {{
+            x.lans('system_characters')}})</p>
+        <button mix-default="{{ x.lans('review_container_cta_1')}}" mix-await="{{ x.lans('system_loading')}}"
+            class="button-primary p-self-end">
+            {{ x.lans("review_container_cta_1")}}
+        </button>
+    </div>
+</form>
