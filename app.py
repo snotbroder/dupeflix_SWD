@@ -711,3 +711,15 @@ def view_new_password(lang = "en"):
     finally: 
         if "cursor" in locals(): cursor.close()
         if "db" in locals(): db.close()
+
+
+####
+@app.route('/security-policy')
+def security_policy():
+    return render_template('security_policy.html')
+
+####
+@app.route('/.well-known/security.txt')
+def security_txt():
+    return app.send_static_file('.well-known/security.txt'), 200, \
+           {'Content-Type': 'text/plain'}

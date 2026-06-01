@@ -1,0 +1,5 @@
+Contact: mailto:tenvoordejoris@gmail.com
+Expires: 2027-01-29T11:30:00.000Z
+Preferred-Languages: da, en
+Canonical: https://snotbroder.eu.pythonanywhere.com/.well-known/security.txt
+Policy: https://snotbroder.eu.pythonanywhere.com/security-policy
