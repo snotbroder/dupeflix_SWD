@@ -19,6 +19,13 @@
             <input class="required" name="user_password" type="password"
                 placeholder="{{ x.USER_PASSWORD_MIN }} {{ x.lans('system_to') }} {{ x.USER_PASSWORD_MAX }} {{ x.lans('system_characters') }}"
                 mix-check="{{ x.REGEX_USER_PASSWORD }}">
+            <p>Password must contain:</p>
+            <ul class="ml-5 list-style-square">
+                <li>{{ x.USER_PASSWORD_MIN }} {{ x.lans('system_to') }} {{ x.USER_PASSWORD_MAX }} {{
+                    x.lans('system_characters') }}</li>
+                <li>at least one digit (1 - 9)</li>
+                <li>at least one special {{ x.lans('system_characters') }} ( !?@()[]# )</li>
+            </ul>
         </div>
         <button class="button-primary h-3rem mt-1rem w-100%" mix-default="{{ x.lans('system_login') }}"
             mix-await="{{ x.lans('system_loading') }}">
