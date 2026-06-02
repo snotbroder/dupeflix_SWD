@@ -32,6 +32,20 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
+# Content security policy https://flask.palletsprojects.com/en/stable/web-security/#content-security-policy-csp
+@app.after_request
+def set_csp(response):
+    response.headers['Content-Security-Policy'] = " ".join([
+        "default-src 'self';",
+        "script-src 'self' https://unpkg.com 'unsafe-inline';",
+        "style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;",
+        "font-src 'self' https://cdnjs.cloudflare.com;",
+        "img-src 'self' https://image.tmdb.org https://occ-0-1387-2774.1.nflxso.net data:;",
+        "connect-src 'self';",
+        "frame-ancestors 'none';",
+    ])
+    return response
+
 ##############################
 # Files that will be loaded in each template 
 @app.context_processor
