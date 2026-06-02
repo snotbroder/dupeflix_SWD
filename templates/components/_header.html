@@ -41,9 +41,7 @@
                 </ul>
             </div>
             <ul class="header-utility">
-                {% if
-                user.user_authority == 2 %} <p>(admin)</p>
-                {% endif %}
+
                 <li>
                     <form>
                         <label for=""><i class="fa-solid fa-magnifying-glass fa-lg icon"></i></label>
@@ -54,6 +52,11 @@
                     <a href="#" class="text-24px">
                         <i class="fa-regular fa-bell fa-lg icon"></i>
                     </a>
+                </li>
+                <li>
+                    {% if
+                    user.user_authority == 2 %} <p class="logged-in-role">(Admin)</p>
+                    {% endif %}
                 </li>
                 <li class="header-profile-container">
                     <div id="header-profile-icon" class="header-profile-icon">

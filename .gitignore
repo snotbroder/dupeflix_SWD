@@ -15,7 +15,7 @@ dist/
 
 # --- Virtual environments ---
 venv/
-.env/
+.env
 env/
 .venv/
 ENV/
@@ -65,6 +65,7 @@ secrets.json
 *.pem
 *.key
 *.crt
+.env
 
 # --- Project files ---
 #Due to database configs for pythonanywhere
