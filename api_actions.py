@@ -34,14 +34,15 @@ def signup(lang = "en"):
         user_verified_at = 0
         user_new_password_key = "0"
         user_deleted_at = 0
+        user_authority = 0
 
         user_hashed_password = generate_password_hash(user_password)
 
         # Connect to the database
-        q = "INSERT INTO users VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        q = "INSERT INTO users VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         db, cursor = x.db()
-        cursor.execute(q, (user_pk, user_email, user_hashed_password, 
-        user_first_name, user_last_name, user_avatar_path, user_verification_key, user_verified_at, user_new_password_key, user_deleted_at))
+        cursor.execute(q, (user_pk, user_email, user_hashed_password,
+        user_first_name, user_last_name, user_avatar_path, user_verification_key, user_verified_at, user_new_password_key, user_deleted_at, user_authority))
         db.commit()
 
         # send verification email
@@ -106,7 +107,9 @@ def login( lang = "en"):
         # Add the default language to the user session
         user["user_language"] = lang
         session["user"] = user
-    
+
+        if user.get("user_authority") == 2:
+            return f"""<browser mix-redirect="/admin"></browser>"""
         return f"""<browser mix-redirect="/browse"></browser>"""
 
     except Exception as ex:

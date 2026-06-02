@@ -180,19 +180,20 @@ CREATE TABLE `users` (
   `user_verification_key` char(32) NOT NULL,
   `user_verified_at` bigint(20) UNSIGNED NOT NULL,
   `user_new_password_key` char(32) NOT NULL,
-  `user_deleted_at` bigint(20) UNSIGNED NOT NULL
+  `user_deleted_at` bigint(20) UNSIGNED NOT NULL,
+  `user_authority` tinyint(1) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_pk`, `user_email`, `user_password`, `user_first_name`, `user_last_name`, `user_avatar_path`, `user_verification_key`, `user_verified_at`, `user_new_password_key`, `user_deleted_at`) VALUES
-('240f43ad1a3f4f5388c63457c4dc4379', 'claus@email.com', 'scrypt:32768:8:1$8ZdT1bobaJOfkHji$5e923c250b9d04dcbdb6b65b5d0516067d4d91ebcab3921576f4428884cb000d2af2f1aa7c32da13dffff1d1899bddcfcceda9a3057cd476b17efcb0b89aaaaa', 'Claus', '', 'images/twitter_default.png', '0', 1765121526, '0', 0),
-('355793fa9839476d932bb1fc5494ab5f', 'caroline@email.com', 'scrypt:32768:8:1$8ZdT1bobaJOfkHji$5e923c250b9d04dcbdb6b65b5d0516067d4d91ebcab3921576f4428884cb000d2af2f1aa7c32da13dffff1d1899bddcfcceda9a3057cd476b17efcb0b89aaaaa', 'Caroline', '', 'images/user_uploads/avatars/753ea915f9ea46ffbbdd999ae4e7474a.jpeg', '0', 1765121526, '0', 0),
-('750ff67a52cb41d18ffb89e0ca44b945', 'niels@email.com', 'scrypt:32768:8:1$wAy2F7quSpzauqOQ$16990cbb8c5c315a081001c9f345c4fa64bff361ff296745703262a5a4ab27eedac4aeb88838f0799134d2e6408f262f4afc07114ca70693179bc1f1d3c0ab4d', 'Niels', '', 'images/user_uploads/avatars/afef14e704634765ac0408f04f5b3bb0.jpeg', '0', 1764861934, '0', 0),
-('a1f2503151cc4f3ca411327f3ed8128a', 'jorislolking@gmail.com', 'scrypt:32768:8:1$z51tOPLrJlrVvExv$0139afc6280543d3b80e483b183cda8ae08fca9132d0ad610a8325fc2e0a9248cb6ea17e672fc1806d081a55da87c602093d1d58deae4c51fdace3ccc94224b0', 'Joris', '', 'images/user_uploads/avatars/b0e47bb36b574962b5c2a4add8e88b6a.jpeg', '0', 1765121526, '0', 0),
-('a25389f1957e49bda5c1892512f9b2c3', 'silver@email.com', 'scrypt:32768:8:1$mKgMut4wW3UvxLRT$c09396210215644ad6dcd889adbc5859604c163c459ad9119b1b717c0d5e046de7a6b42f20d41971a04862b7aa9123be5726aea42ef81d5fec3465eb286e691e', 'Silver', '', 'images/twitter_default.png', '0', 1765121526, '0', 1765641386);
+INSERT INTO `users` (`user_pk`, `user_email`, `user_password`, `user_first_name`, `user_last_name`, `user_avatar_path`, `user_verification_key`, `user_verified_at`, `user_new_password_key`, `user_deleted_at`, `user_authority`) VALUES
+('240f43ad1a3f4f5388c63457c4dc4379', 'claus@email.com', 'scrypt:32768:8:1$8ZdT1bobaJOfkHji$5e923c250b9d04dcbdb6b65b5d0516067d4d91ebcab3921576f4428884cb000d2af2f1aa7c32da13dffff1d1899bddcfcceda9a3057cd476b17efcb0b89aaaaa', 'Claus', '', 'images/twitter_default.png', '0', 1765121526, '0', 0, 0),
+('355793fa9839476d932bb1fc5494ab5f', 'caroline@email.com', 'scrypt:32768:8:1$8ZdT1bobaJOfkHji$5e923c250b9d04dcbdb6b65b5d0516067d4d91ebcab3921576f4428884cb000d2af2f1aa7c32da13dffff1d1899bddcfcceda9a3057cd476b17efcb0b89aaaaa', 'Caroline', '', 'images/user_uploads/avatars/753ea915f9ea46ffbbdd999ae4e7474a.jpeg', '0', 1765121526, '0', 0, 0),
+('750ff67a52cb41d18ffb89e0ca44b945', 'niels@email.com', 'scrypt:32768:8:1$wAy2F7quSpzauqOQ$16990cbb8c5c315a081001c9f345c4fa64bff361ff296745703262a5a4ab27eedac4aeb88838f0799134d2e6408f262f4afc07114ca70693179bc1f1d3c0ab4d', 'Niels', '', 'images/user_uploads/avatars/afef14e704634765ac0408f04f5b3bb0.jpeg', '0', 1764861934, '0', 0, 0),
+('a1f2503151cc4f3ca411327f3ed8128a', 'jorislolking@gmail.com', 'scrypt:32768:8:1$z51tOPLrJlrVvExv$0139afc6280543d3b80e483b183cda8ae08fca9132d0ad610a8325fc2e0a9248cb6ea17e672fc1806d081a55da87c602093d1d58deae4c51fdace3ccc94224b0', 'Joris', '', 'images/user_uploads/avatars/b0e47bb36b574962b5c2a4add8e88b6a.jpeg', '0', 1765121526, '0', 0, 0),
+('a25389f1957e49bda5c1892512f9b2c3', 'silver@email.com', 'scrypt:32768:8:1$mKgMut4wW3UvxLRT$c09396210215644ad6dcd889adbc5859604c163c459ad9119b1b717c0d5e046de7a6b42f20d41971a04862b7aa9123be5726aea42ef81d5fec3465eb286e691e', 'Silver', '', 'images/twitter_default.png', '0', 1765121526, '0', 1765641386, 0);
 
 --
 -- Triggers `users`

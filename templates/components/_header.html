@@ -41,6 +41,9 @@
                 </ul>
             </div>
             <ul class="header-utility">
+                {% if
+                user.user_authority == 2 %} <p>(admin)</p>
+                {% endif %}
                 <li>
                     <form>
                         <label for=""><i class="fa-solid fa-magnifying-glass fa-lg icon"></i></label>
@@ -61,9 +64,19 @@
                     <span class="header-caret-icon"><i class="fa-solid fa-caret-down icon"></i></span>
                     <div class="header-profile-dropdown">
                         <div class="header-profile-dropdown-hoverfield"></div>
-                        <p class="header-user-name">{{ x.lans("nav_hello") }}</a> {{ user.user_first_name }}</span>
+                        <p class="header-user-name">{{ x.lans("nav_hello") }}</a>
+                            {{ user.user_first_name }}</span>
                         </p>
                         <ul class="header-profile-dropdown-content">
+                            {% if user.user_authority == 2 %}
+                            <li>
+                                <a class="header-profile-dropdown-item" href="{{ url_for('view_admin') }}">
+
+                                    <button class="button-primary text-1rem w-100% text-a-center">Admin panel</button>
+
+                                </a>
+                            </li>
+                            {% endif %}
                             <li class="mb-.5rem">
                                 <form action="{{ url_for('update_user_language') }}" method="get">
                                     <select class="button-secondary w-100% text-1rem" name="language_selector"
@@ -77,6 +90,7 @@
                                     </select>
                                 </form>
                             </li>
+
                             <li>
                                 <a class="header-profile-dropdown-item" href="{{ url_for('view_account') }}">
                                     <i class="fa-solid fa-user"></i>
@@ -118,9 +132,13 @@
 
                     {% endif %}
                     {% if request.endpoint == 'view_admin' %}
-                    <a class="button-primary ml-auto text-1rem" href="{{ url_for('api_actions.api_logout') }}">Log out
-                        as
-                        Admin</a>
+                    <a class="button-primary ml-auto text-1rem" href="{{ url_for('view_browse') }}">
+                        Back to browse
+                    </a>
+                    <a class="button-secondary ml-auto text-1rem" href="{{ url_for('api_actions.api_logout') }}">
+                        Log out as Admin
+                    </a>
+
                     {% endif %}
                     <form action="{{ url_for('update_website_language') }}" method="get">
                         <select class="button-secondary ml-auto text-1rem" name="language_selector"

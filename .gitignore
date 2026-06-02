@@ -66,6 +66,9 @@ secrets.json
 *.key
 *.crt
 
-# --- Project files --- 
+# --- Project files ---
 #Due to database configs for pythonanywhere
 x.py
+
+# --- Claude Code ---
+CLAUDE.md

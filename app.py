@@ -403,15 +403,18 @@ def api_update_account():
 
 ################## 
 @app.route("/admin")
+@x.no_cache
 def view_admin():
     try:
-        user = session.get("admin_session", "")
-        if not user: 
-            return redirect(url_for("view_admin_login"))
+        user = session.get("user", "")
+        if not user:
+            return redirect(url_for("view_login"))
+        if user.get("user_authority") != 2:
+            return redirect(url_for("view_browse"))
         # Connect to the database
         db, cursor = x.db()
         #Active uses in database
-        q = "SELECT * FROM users WHERE user_deleted_at = '0'" 
+        q = "SELECT * FROM users WHERE user_deleted_at = '0'"
         cursor.execute(q)
         active_users = cursor.fetchall()
 
@@ -425,7 +428,8 @@ def view_admin():
         cursor.execute(q)
         reviews = cursor.fetchall()
 
-        return render_template("admin.html", active_users=active_users, deleted_users=deleted_users, reviews=reviews)
+        lang = user.get("user_language", "en")
+        return render_template("admin.html", user=user, lang=lang, active_users=active_users, deleted_users=deleted_users, reviews=reviews)
 
     except Exception as ex:
         ic(ex)
@@ -435,48 +439,9 @@ def view_admin():
         if "db" in locals(): db.close()
 
 ################## 
-@app.route("/admin-login", methods=["GET", "POST"])
-@x.no_cache
+@app.route("/admin-login")
 def view_admin_login():
-
-    if request.method == "GET":
-        if session.get("admin_session", ""): return render_template("admin.html")
-        return render_template("adminlogin.html")
-
-    if request.method == "POST":
-        try:
-            # Validate           
-            user_email = x.validate_user_email()
-            user_password = x.validate_user_password()
-            
-            # HArdcoded for demonstration purposes 
-            admin_email = "admin@email.com"
-            admin_password = "password"
-
-            if not user_email:
-                raise Exception("Please enter a valid email", 400)
-
-            if user_email != admin_email or user_password != admin_password:
-                raise Exception ("Invalid credentials", 400)
-            
-            session["admin_session"] = True
-
-            return f"""<browser mix-redirect="/admin"></browser>"""
-
-        except Exception as ex:
-            ic(ex)
-            # User errors
-            if ex.args[1] == 400:
-                label_error = render_template("components/toast/___label_error.html", message=ex.args[0])
-                ic("An error occured in Email")
-                return f"""<browser mix-update="#error_container">{ label_error }</browser>""", 400
-            
-            # System or developer error
-            label_error = render_template("components/toast/___label_error.html", message=x.lans("feedback_system_maintenance"))
-            return f"""<browser mix-update="#error_container">{ label_error }</browser>""", 500
-    
-        finally:
-            pass
+    return redirect(url_for("view_login"))
 
 
 #################
