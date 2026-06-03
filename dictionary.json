@@ -126,8 +126,8 @@
     },
     "feedback_invalid_credentials": {
         "en": "Invalid credentials",
-        "nl": "Ongeldig wachtwoord",
-        "es": "Clave invalido"
+        "nl": "Ongeldig inloggegevens",
+        "es": "Credenciales no válidas"
     },
     "feedback_invalid_email": {
         "en": "Invalid email",
@@ -153,6 +153,11 @@
         "en": "Review must be",
         "nl": "Recencie moet minstens",
         "es": "La reseña debe ser"
+    },
+    "feedback_invalid_already_exists": {
+        "en": "User already exists",
+        "nl": "Gebruiker bestaat al",
+        "es": "Usario ya existe"
     },
     "feedback_invalid_already_blocked": {
         "en": "User already blocked",
