@@ -19,11 +19,11 @@
         <button class="button-secondary openDialogBtn" data-user="{{ user.user_pk }}">See reviews</button>
         {% if user.user_deleted_at != 0 %}
 
-        <button class="button-secondary" mix-patch="/reactivate-user?user_id={{ user.user_pk }}"
+        <button class="button-secondary" mix-patch="/api-reactivate-user?user_id={{ user.user_pk }}"
             mix-await="Reactivating user..." mix-default="Reactivate user">Reactivate
             user</button>
         {% else %}
-        <button class="button-primary" mix-patch="/delete-user?user_id={{ user.user_pk }}" mix-await="Deleting user..."
+        <button class="button-primary" mix-patch="/api-delete-user?user_id={{ user.user_pk }}" mix-await="Deleting user..."
             mix-default="Delete user">Delete
             user</button>
         {% endif %}

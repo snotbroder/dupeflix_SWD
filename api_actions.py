@@ -62,7 +62,7 @@ def signup(lang = "en"):
         
         # Database errors
         if "Duplicate entry" and user_email in str(ex): 
-            label_error = render_template("components/toast/___label_error.html", message=x.lans("feedback_invalid_already_blocked"))
+            label_error = render_template("components/toast/___label_error.html", message=x.lans("feedback_invalid_already_exists"))
             return f"""<mixhtml mix-update="#error_container">{ label_error }</mixhtml>""", 400
         
         # System or developer error 
@@ -129,7 +129,7 @@ def login( lang = "en"):
 
 
 ### LOGOUT ###
-@api_actions.get("/logout")
+@api_actions.get("/api-logout")
 def api_logout():
     try:
         session.clear()
@@ -142,7 +142,7 @@ def api_logout():
 
 
 ### VERIFY ACCOUNT ###
-@api_actions.route("/verify-account", methods=["GET"])
+@api_actions.route("/api-verify-account", methods=["GET"])
 def api_verify_account():
     try:
         user_verification_key = x.validate_uuid4_without_dashes(request.args.get("key", ""))
@@ -400,8 +400,8 @@ def api_update_review(review_pk):
 
 
 ### FORGOT PASSWORD ###
-@api_actions.post("/forgot-password")
-@api_actions.post("/forgot-password/<lang>")
+@api_actions.post("/api-forgot-password")
+@api_actions.post("/api-forgot-password/<lang>")
 def api_forgot_password(lang = "en"):
     try:
         user_email = x.validate_user_email(lang)
@@ -494,7 +494,7 @@ def api_update_password():
         if "db" in locals(): db.close()
 
 ### ACCOUNT DELETE ###
-@api_actions.patch("/delete-user")
+@api_actions.patch("/api-delete-user")
 def api_delete_user():
     try:
             user = session.get("user", "")
@@ -547,7 +547,7 @@ def api_delete_user():
         if "cursor" in locals(): cursor.close()
         if "db" in locals(): db.close()
 
-@api_actions.patch("/reactivate-user")
+@api_actions.patch("/api-reactivate-user")
 def api_reactivate_user():
     try:
         user = session.get("user", "")

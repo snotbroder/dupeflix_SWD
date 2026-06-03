@@ -114,8 +114,8 @@ def view_login( lang = "en"):
     
 
 ##############################
-@app.route("/index-pass-email", methods=["POST"])
-@app.route("/index-pass-email/<lang>", methods=["POST"])
+@app.route("/api-index-pass-email", methods=["POST"])
+@app.route("/api-index-pass-email/<lang>", methods=["POST"])
 def index_signup(lang ="en"):
     try:
         x.default_language = lang
@@ -597,7 +597,7 @@ def get_data_from_sheet():
         pass
 
 ###############
-@app.route("/update-user-language", methods=["GET"])
+@app.route("/api-update-user-language", methods=["GET"])
 def update_user_language():
     # get selected language from form
     chosen_language = request.args.get("language_selector")
@@ -614,7 +614,7 @@ def update_user_language():
     # Redirect back to the page the user was
     return redirect(request.headers.get("Referer", "/"))
 
-@app.get("/update-website-language")
+@app.get("/api-update-website-language")
 def update_website_language():
     lang = request.args.get("language_selector", "en")
 
@@ -646,8 +646,8 @@ def update_website_language():
     return redirect(new_url)
 
 ##########
-@app.route("/forgot-password", methods=["GET", "POST"])
-@app.route("/forgot-password/<lang>", methods=["GET", "POST"])
+@app.route("/forgot-password", methods=["GET"])
+@app.route("/forgot-password/<lang>", methods=["GET"])
 def view_forgot_password(lang = "en"):
     x.default_language = lang
 

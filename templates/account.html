@@ -63,7 +63,7 @@
             <p class="text-c-var(--color_tertiary)">{{ x.lans("account_body_2") }}</p>
             <div>
                 <button class="button-primary" id="fakeButton">{{ x.lans("account_cta_2") }}</button>
-                <button class="button-primary d-none" mix-patch="/delete-user?user_id={{ user.user_pk }}"
+                <button class="button-primary d-none" mix-patch="/api-delete-user?user_id={{ user.user_pk }}"
                     mix-await="Deleting account..." mix-default="Delete my account" id="confirmButton">
                     {{ x.lans("system_confirm") }}
                     {{ x.lans("account_cta_2") }}
