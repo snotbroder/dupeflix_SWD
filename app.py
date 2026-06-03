@@ -557,6 +557,9 @@ def view_mylist():
 @app.get("/api-update-dictionary")
 def get_data_from_sheet():
     try:
+        user = session.get("user", "")
+        if not user or user.get("user_authority") != 2:
+            return "Forbidden", 403
         # Create a google sheet
         # share and make it visible to "anyone with the link"
         # In the link, find the ID of the sheet. Here: 1aPqzumjNp0BwvKuYPBZwel88UO-OC_c9AEMFVsCw1qU

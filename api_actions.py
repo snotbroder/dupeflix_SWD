@@ -225,16 +225,21 @@ def api_create_review(movie_id):
 def api_delete_review(review_pk):
     try:
         user = session.get("user", "")
-        if not user: return "invalid user"
+        if not user: return "invalid user", 401
 
-        review_deleted_at = int(time.time())  
+        user_pk = user.get("user_pk")
+        review_deleted_at = int(time.time())
         # Fallbcak
         if not review_pk:
             return redirect(url_for("view_browse"))
 
         db, cursor = x.db()
-        q = "UPDATE reviews SET review_deleted_at = %s WHERE review_pk = %s AND review_deleted_at = 0"
-        cursor.execute(q, (review_deleted_at, review_pk))
+        if user.get("user_authority") == 2:
+            q = "UPDATE reviews SET review_deleted_at = %s WHERE review_pk = %s AND review_deleted_at = 0"
+            cursor.execute(q, (review_deleted_at, review_pk))
+        else:
+            q = "UPDATE reviews SET review_deleted_at = %s WHERE review_pk = %s AND review_user_fk = %s AND review_deleted_at = 0"
+            cursor.execute(q, (review_deleted_at, review_pk, user_pk))
         db.commit()
         label_ok = render_template("components/toast/___label_ok.html", message=x.lans("feedback_success_review_deleted"))        
 
@@ -342,9 +347,8 @@ def api_cancel_review(review_pk):
 def api_update_review(review_pk):
     try:
         user = session.get("user", "")
+        if not user: return "invalid user", 401
         user_pk = user["user_pk"]
-        user_avatar_path = user["user_avatar_path"]
-        if not user: return "invalid user"
         
         updated_review_text = request.form.get("updated_review_text")
         db, cursor = x.db()
@@ -493,6 +497,10 @@ def api_update_password():
 @api_actions.patch("/delete-user")
 def api_delete_user():
     try:
+            user = session.get("user", "")
+            if not user or user.get("user_authority") != 2:
+                return "Forbidden", 403
+
             user_id = request.args.get("user_id")
             if not user_id:
                 return "User not found", 400
@@ -521,7 +529,6 @@ def api_delete_user():
             x.send_email(user_email, "Dupeflix account suspended", email_user_deleted)
 
             # Check if the deletion comes from the logged in user
-            user = session.get("user")
             logged_in_user = user.get("user_pk")
 
             if logged_in_user == user_id:
@@ -543,6 +550,10 @@ def api_delete_user():
 @api_actions.patch("/reactivate-user")
 def api_reactivate_user():
     try:
+        user = session.get("user", "")
+        if not user or user.get("user_authority") != 2:
+            return "Forbidden", 403
+
         user_id = request.args.get("user_id")
         if not user_id:
             return "User not found", 400
@@ -645,6 +656,8 @@ def api_unblock_user(blocked_user_fk, blocker_user_fk):
 @api_actions.get("/api-display-comment-container/<review_fk>")
 def api_display_comment_container(review_fk):
     try:
+        user = session.get("user", "")
+        if not user: return "invalid user", 401
         html_comment_container = render_template("components/___review_comment_container.html", review_fk=review_fk)
         return f"""
         <browser mix-replace="#commentarea-{review_fk}">{html_comment_container}</browser>
@@ -669,6 +682,8 @@ def api_display_comment_container(review_fk):
 @api_actions.get("/api-close-display-comment-container/<review_fk>")
 def api_close_display_comment_container(review_fk):
     try:
+        user = session.get("user", "")
+        if not user: return "invalid user", 401
         return f"""
             <browser mix-replace="#comment-button-{review_fk}">
                 <form mix-get action="/api-display-comment-container/{review_fk}">
@@ -750,13 +765,18 @@ def api_create_comment(review_fk):
 def api_delete_comment(comment_pk):
     try:
         user = session.get("user", "")
-        if not user: return "invalid user"
+        if not user: return "invalid user", 401
 
-        comment_deleted_at = int(time.time())  
-        
+        user_pk = user.get("user_pk")
+        comment_deleted_at = int(time.time())
+
         db, cursor = x.db()
-        q = "UPDATE comments SET comment_deleted_at = %s WHERE comment_pk = %s AND comment_deleted_at = 0"
-        cursor.execute(q, (comment_deleted_at, comment_pk))
+        if user.get("user_authority") == 2:
+            q = "UPDATE comments SET comment_deleted_at = %s WHERE comment_pk = %s AND comment_deleted_at = 0"
+            cursor.execute(q, (comment_deleted_at, comment_pk))
+        else:
+            q = "UPDATE comments SET comment_deleted_at = %s WHERE comment_pk = %s AND comment_user_fk = %s AND comment_deleted_at = 0"
+            cursor.execute(q, (comment_deleted_at, comment_pk, user_pk))
         db.commit()
         label_ok = render_template("components/toast/___label_ok.html", message="Successfully deleted comment")        
 
@@ -780,6 +800,9 @@ def api_delete_comment(comment_pk):
 @api_actions.post("/api-search")
 def api_search():
     try:
+        user = session.get("user", "")
+        if not user or user.get("user_authority") != 2:
+            return "Forbidden", 403
         search_for = x.validate_search(request.form.get("search_for", ""))
 
         if not search_for: return """empty search field""", 400
