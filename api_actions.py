@@ -96,7 +96,7 @@ def login( lang = "en"):
             raise Exception(x.lans("feedback_invalid_user_deleted"), 400)
 
         if not check_password_hash(user["user_password"], user_password):
-            raise Exception(x.lans("feedback_invalid_password"), 400)
+            raise Exception(x.lans("feedback_invalid_credentials"), 400)
 
         if user["user_verification_key"] != "0":
             raise Exception(x.lans("feedback_user_not_verified"), 400)

@@ -194,7 +194,7 @@ def view_browse():
         return render_template("browse.html", user=user, movies_popular=movies_popular, movies_comedy=movies_comedy, movies_romance=movies_romance, lang=lang)
     except Exception as ex:
         ic(ex)
-        return f"error {ex}"
+        return f"An error occured loading browse"
     finally:
         if "cursor" in locals(): cursor.close()
         if "db" in locals(): db.close()
