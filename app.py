@@ -35,6 +35,7 @@ Session(app)
 # Content security policy https://flask.palletsprojects.com/en/stable/web-security/#content-security-policy-csp
 @app.after_request
 def set_csp(response):
+    # CSP/Content security policy (client)
     response.headers['Content-Security-Policy'] = " ".join([
         "default-src 'self';",
         "script-src 'self' https://unpkg.com 'unsafe-inline';",
@@ -44,6 +45,12 @@ def set_csp(response):
         "connect-src 'self';",
         "frame-ancestors 'none';",
     ])
+
+    # CORS, Cross-origin ressource sharing (api)
+    response.headers['Access-Control-Allow-Origin'] = 'http://localhost'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+
     return response
 
 ##############################
