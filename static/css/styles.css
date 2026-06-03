@@ -24,6 +24,7 @@ body {
 main {
   margin: 0 auto;
   padding: 0 4%;
+  max-width: 1864px;
   font-family: var(--font_fallback);
   color: var(--color_secondary);
 
