@@ -35,14 +35,15 @@ def signup(lang = "en"):
         user_new_password_key = "0"
         user_deleted_at = 0
         user_authority = 0
+        user_login_attempt = 0
 
         user_hashed_password = generate_password_hash(user_password)
 
         # Connect to the database
-        q = "INSERT INTO users VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        q = "INSERT INTO users VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         db, cursor = x.db()
         cursor.execute(q, (user_pk, user_email, user_hashed_password,
-        user_first_name, user_last_name, user_avatar_path, user_verification_key, user_verified_at, user_new_password_key, user_deleted_at, user_authority))
+        user_first_name, user_last_name, user_avatar_path, user_verification_key, user_verified_at, user_new_password_key, user_deleted_at, user_authority, user_login_attempt))
         db.commit()
 
         # send verification email
