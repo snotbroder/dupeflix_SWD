@@ -47,11 +47,16 @@ def set_csp(response):
     ])
 
     # CORS, Cross-origin ressource sharing (api)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost'
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    response.headers["Access-Control-Allow-Origin"] = "http://localhost"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PATCH"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
 
     return response
+
+# Cookie session security
+app.config["SESSION_COOKIE_HTTPONLY"] = True #prevents JavaScript from reading the session cookie, blocks XSS-based session theft
+app.config["SESSION_COOKIE_SECURE"] = True #cookie is only sent over HTTPS, prevents interception on plain HTTP
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax" #blocks the cookie from being sent in cross-site requests, mitigates CSRF
 
 ##############################
 # Files that will be loaded in each template 
