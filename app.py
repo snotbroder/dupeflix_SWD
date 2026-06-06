@@ -47,7 +47,7 @@ def set_csp(response):
     ])
 
     # CORS, Cross-origin ressource sharing (api)
-    response.headers["Access-Control-Allow-Origin"] = "http://localhost"
+    response.headers["Access-Control-Allow-Origin"] = "http://localhost" #https://snotbroder.eu.pythonanywhere.com
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PATCH"
     response.headers["Access-Control-Allow-Headers"] = "Content-Type"
 
