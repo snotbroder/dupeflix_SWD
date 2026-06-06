@@ -361,19 +361,18 @@ def api_update_account():
         user_email = x.validate_user_email()
         user_first_name = x.validate_user_first_name()
 
-        file = request.files.get('user_avatar_file_upload')
+        file = x.validate_avatar_file("user_avatar_file_upload")
         file_path = None
 
-        # Check if user has uploaded a file, then validate, got help from ChatGPT
-        if file and x.validate_avatar_file(file.filename):
+        if file:
             filetype = os.path.splitext(file.filename)[1].lower()
             filename = f"{uuid.uuid4().hex}{filetype}"
 
-            save_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            save_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             file.save(save_path)
 
             # Save the relative path (NO 'static/' prefix)
-            file_path = os.path.join('images/user_uploads/avatars', filename)
+            file_path = os.path.join("images/user_uploads/avatars", filename)
 
         # Connect to the database
         db, cursor = x.db()
@@ -385,41 +384,48 @@ def api_update_account():
             cursor.execute(q, (user_email, user_first_name, user["user_pk"]))
         db.commit()
 
+        # Update session with new values
+        session["user"]["user_email"] = user_email
+        session["user"]["user_first_name"] = user_first_name
+        if file_path:
+            session["user"]["user_avatar_path"] = file_path
+
         # Response to the browser
         label_ok = render_template("components/toast/___label_ok.html", message=x.lans("feedback_success_account_updated"))
-        return f"""
-        <browser mix-update="#error_container">{label_ok}</browser>
+        avatar_html = f"""
         <browser mix-update="#header-profile-icon">
-            <img class="profile-icon"
-                    src="static/{file_path}"
-                    alt="Profile">
+            <img class="profile-icon" src="static/{file_path}" alt="Profile">
         </browser>
         <browser mix-update="#account-profile-icon">
-            <img src="static/{file_path}"
-                alt="Profile picture" class="img rounded-md aspect-ratio:1/1">
+            <img src="static/{file_path}" alt="Profile picture" class="img rounded-md aspect-ratio:1/1">
         </browser>
+        """ if file_path else ""
+        return f"""
+        <browser mix-update="#error_container">{label_ok}</browser>
+        {avatar_html}
         <browser mix-update="#account-header">{x.lans("account_header_1")} {user_first_name}</browser>
         """, 200
-    
+
     except Exception as ex:
         ic(ex)
-        
+
         # User errors
-        if ex.args[1] == 400:
+        if len(ex.args) > 1 and ex.args[1] == 400:
             label_error = render_template("components/toast/___label_error.html", message=ex.args[0])
-            return f"""<mixhtml mix-update="#error_container">{ label_error }</mixhtml>""", 400
-        
+            return f"""<browser mix-update="#error_container">{ label_error }</browser>""", 400
+
         # Database errors
-        if "Duplicate entry" and user_email in str(ex): 
+        if "Duplicate entry" in str(ex):
             label_error = render_template("components/toast/___label_error.html", message=x.lans("feedback_email_already_registered"))
-            return f"""<mixhtml mix-update="#error_container">{ label_error }</mixhtml>""", 400
-        
+            return f"""<browser mix-update="#error_container">{ label_error }</browser>""", 400
+
         # System or developer error
         label_error = render_template("components/toast/___label_error.html", message=x.lans("feedback_system_maintenance"))
-        return f"""<mixhtml mix-bottom="#error_container">{ label_error }</mixhtml>""", 500
+        return f"""<browser mix-update="#error_container">{ label_error }</browser>""", 500
 
     finally:
         if "cursor" in locals(): cursor.close()
+        if "db" in locals(): db.close()
         if "db" in locals(): db.close()
 
 ################## 
