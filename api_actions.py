@@ -46,7 +46,7 @@ def signup(lang = "en"):
         db.commit()
 
         # send verification email
-        email_verify_account = render_template("components/email/_email_verify_account.html", user_verification_key=user_verification_key)
+        email_verify_account = render_template("components/email/_email_verify_account.html", user_verification_key=user_verification_key, base_url=request.host_url)
         ic(email_verify_account)
         x.send_email(user_email, "Verify your account", email_verify_account)
         
@@ -446,7 +446,7 @@ def api_forgot_password(lang = "en"):
         db.commit()
 
         # send email with link and key
-        email_new_password = render_template("components/email/_email_forgot_password.html", user_new_password_key=user_new_password_key)
+        email_new_password = render_template("components/email/_email_forgot_password.html", user_new_password_key=user_new_password_key, base_url=request.host_url)
         x.send_email(user_email, "Forgot password | Dupeflix", email_new_password)
 
         label_ok = render_template("components/toast/___label_ok.html", message=x.lans('feedback_check_email'))
@@ -543,7 +543,7 @@ def api_delete_user():
             db.commit()
 
             # send email letting user know
-            email_user_deleted = render_template("components/email/_email_user_deleted.html")
+            email_user_deleted = render_template("components/email/_email_user_deleted.html", base_url=request.host_url)
             x.send_email(user_email, "Dupeflix account suspended", email_user_deleted)
 
             # Check if the deletion comes from the logged in user
@@ -595,7 +595,7 @@ def api_reactivate_user():
         db.commit()
         
         # send email letting user know
-        email_user_reactivated = render_template("components/email/_email_user_reactivated.html")
+        email_user_reactivated = render_template("components/email/_email_user_reactivated.html", base_url=request.host_url)
         x.send_email(user_email, "Dupeflix account reactivated", email_user_reactivated)
 
         label_ok = render_template("components/toast/___label_ok.html", message="Successfully reactivated user")
