@@ -94,9 +94,22 @@ def login( lang = "en"):
         
         if user["user_deleted_at"] != 0:
             raise Exception(x.lans("feedback_invalid_user_deleted"), 400)
-
+        
+        if user["user_login_attempt"] >= 5:
+            user_deleted_at = int(time.time())
+            q = "UPDATE users SET user_deleted_at = %s WHERE user_email = %s"
+            cursor.execute(q, (user_deleted_at, user_email))
+            db.commit()
+            raise Exception(("Account has been deactivated, contact moderator"), 400)
+            
+            
         if not check_password_hash(user["user_password"], user_password):
-            raise Exception(x.lans("feedback_invalid_credentials"), 400)
+            #If login fails, increment attempt-count
+            q = "UPDATE users SET user_login_attempt = user_login_attempt + 1 WHERE user_email = %s"
+            cursor.execute(q, (user_email,))
+            db.commit()
+            raise Exception(f"Invalid credentials, {5 - user['user_login_attempt']} attempts left", 400)
+
 
         if user["user_verification_key"] != "0":
             raise Exception(x.lans("feedback_user_not_verified"), 400)
@@ -104,11 +117,16 @@ def login( lang = "en"):
         
         user.pop("user_password")
 
+        # Set login attempts to 0 after successful login
+        q = "UPDATE users SET user_login_attempt = %s WHERE user_email = %s"
+        cursor.execute(q, (0, user_email,))
+        db.commit()
+
         # Add the default language to the user session
         user["user_language"] = lang
         session["user"] = user
 
-        if user.get("user_authority") == 2:
+        if user["user_authority"] == 2:
             return f"""<browser mix-redirect="/admin"></browser>"""
         return f"""<browser mix-redirect="/browse"></browser>"""
 
@@ -117,7 +135,7 @@ def login( lang = "en"):
         # User errors
         if ex.args[1] == 400:
             label_error = render_template("components/toast/___label_error.html", message=ex.args[0])
-            ic("An error occured in Email")
+            ic("An error occured")
             return f"""<browser mix-update="#error_container">{ label_error }</browser>""", 400
         # System or developer error
         label_error = render_template("components/toast/___label_error.html", message=x.lans("feedback_system_maintenance"))
